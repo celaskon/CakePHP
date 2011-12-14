@@ -1,13 +1,13 @@
 <?php
-class Contact extends AppModel {
-    public $name = 'Contact';
+class Adress extends AppModel {
+    public $name = 'Adress';
     public $belongsTo = array(
         'CompanyProfile',
         'Info' => array(
             'className'  => 'Text',
-            'foreignKey' => 'info_id',
+            'foreignKey' => 'name_id',
             'dependent'  => true
         )
     );
 }
-?>
+?>                                                                   

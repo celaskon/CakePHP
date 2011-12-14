@@ -5,16 +5,16 @@ class CompanyProfile extends AppModel {
         'User',
         'Info' => array(
             'className'  => 'Text',
-            'foreignKey' => 'info_id'
+            'foreignKey' => 'info_id',
             'dependent'  => true
         )
     );
-   
+
     public $hasMany = array(
         'Contact',
-        'Category'
-    );
-   
+        'CompanyCategory',
+        'Adress'
+        );
 }
     
     
