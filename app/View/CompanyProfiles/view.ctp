@@ -135,7 +135,7 @@
 	</div>
 </div>
 
-				<?php print_r($companyProfile);?>
+				<?php //print_r($companyProfile);?>
 
 <div class="related">
 	<h3><?php echo __('Related Categories');?></h3>
@@ -145,9 +145,9 @@
 		$i = 0;
 		foreach ($categories as $category): ?>
 		<tr>
-			<td><?php echo $this->Text->get($category['ParentCategory']['name_id']); ?>  -> </td>
-			<td><?php echo $this->Text->get($category['Category']['name_id']); ?></td>
-		
+			<td>
+        <?php echo $this->Html->link(__($this->Text->get($category['ParentCategory']['name_id'])), array('controller' => 'categories', 'action' => 'view', $category['Category']['category_id']));  ?>  ->
+			  <?php echo $this->Html->link(__($this->Text->get($category['Category']['name_id'])), array('controller' => 'categories', 'action' => 'viewCompanies', $category['Category']['id']));  ?></td>
     </tr>
 	<?php endforeach; ?>
 	</table>

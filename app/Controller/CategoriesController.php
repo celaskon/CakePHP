@@ -7,7 +7,7 @@ App::uses('AppController', 'Controller');
  */
 class CategoriesController extends AppController {
 
-  public $uses = array('Category', 'LanguageText');
+  public $uses = array('Category', 'LanguageText', 'CompanyCategory');
   //public $helpers = array('Form', 'Html', 'Js', 'Time', 'Text');
 /**
  * index method
@@ -15,15 +15,14 @@ class CategoriesController extends AppController {
  * @return void
  */
 	public function index() {
-		
-   $conditions = array("Category.category_id" => "NULL");
-  //Example usage with a model:
-   $skuska = $this->Category->find('first', array('conditions' => $conditions));
-   $this->set('skuska', $skuska);
+    
+     
+    $mainCategories = $this->Category->find('all', array("conditions"=> "Category.category_id IS NULL")); 
+    $this->set('mainCategories', $mainCategories);   
     
     $this->set('LT',$this->LanguageText);
     $this->Category->recursive = 0;
-		$this->set('categories', $this->paginate());    
+		$this->set('categories', $this->paginate());  
 	}
 
 /**
@@ -37,8 +36,43 @@ class CategoriesController extends AppController {
 		if (!$this->Category->exists()) {
 			throw new NotFoundException(__('Invalid category'));
 		}
-		$this->set('category', $this->Category->read(null, $id));
+    //$mainCategorys = $this->Category->find('first', array('conditions' => array('Category.category_id' => $id))); // hlavna kategoria 
+    //$this->set('mainCategorys', $mainCategorys);
+    
+    $subCategories = $this->Category->find('all', array('conditions' => array('Category.category_id' => $id))); // podkategorie
+    $this->set('subCategories', $subCategories); 
+    $this->set('LT',$this->LanguageText);  
+    
+    $this->set('category', $this->Category->read(null, $id));
 	}
+
+/**
+ * view method
+ *
+ * @param string $id
+ * @return void
+ */
+
+	
+	public function viewCompanies($id = null) {
+		$this->Category->id = $id;
+		if (!$this->Category->exists()) {
+			throw new NotFoundException(__('Invalid category'));
+		}
+    //$mainCategorys = $this->Category->find('first', array('conditions' => array('Category.category_id' => $id))); // hlavna kategoria 
+    //$this->set('mainCategorys', $mainCategorys);
+    
+    $companies = $this->CompanyCategory->find('all', array('conditions' => array('CompanyCategory.category_id' => $id))); // podkategorie
+    $this->set('companies', $companies); 
+    
+    
+    $subCategories = $this->Category->find('all', array('conditions' => array('Category.category_id' => $id))); // podkategorie
+    $this->set('subCategories', $subCategories); 
+    $this->set('LT',$this->LanguageText);  
+    
+    $this->set('category', $this->Category->read(null, $id));
+	}
+
 
 /**
  * add method

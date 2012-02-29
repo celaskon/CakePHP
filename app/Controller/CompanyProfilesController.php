@@ -32,7 +32,6 @@ class CompanyProfilesController extends AppController {
     //$this->Category->unbindModel( array('hasMany'=>array('CompanyCategory','ChildCategory')) , false );
     
     foreach ($companyProfile['CompanyCategory'] as $CompanyCategory):
-       
        $this->Category->id = $CompanyCategory['category_id'];
        $categories[] = $this->Category->read();
     endforeach;

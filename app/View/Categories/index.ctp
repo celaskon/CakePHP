@@ -1,15 +1,28 @@
 <div class="categories index">
-	<h2><?php echo __('Categories');?></h2>
-	<table cellpadding="0" cellspacing="0">
+	<h2><?php echo __('Main Categories');?></h2>
+	<p>Zoznam kategórii na portáli:</p>
+  <table cellpadding="0" cellspacing="0">
+	<!--<tr>
+			<th><?php //echo $this->Paginator->sort('id');?></th>   
+			<th><?php //echo $this->Paginator->sort('category_id');?></th>
+			<th><?php //echo $this->Paginator->sort('name_id');?></th>
+			<th class="actions"><?php //echo __('Actions');?></th>
+	</tr> -->  
+	
+  <?php
+  foreach ($mainCategories as $category): ?>
 	<tr>
-			<th><?php echo $this->Paginator->sort('id');?></th>
-			<th><?php echo $this->Paginator->sort('category_id');?></th>
-			<th><?php echo $this->Paginator->sort('name_id');?></th>
-			<th class="actions"><?php echo __('Actions');?></th>
-	</tr>  
-	<?php
-	$i = 0;
-	foreach ($categories as $category): ?>
+		<td>                                                      
+			<?php  echo $this->Html->link(__($LT->getContent(1, $category['Category']['name_id'])), array('action' => 'view', $category['Category']['id'])); // $this->Html->link(nazov linku, cesta)   ?>
+    </td>
+	</tr>
+  <?php 
+  endforeach; 
+	
+	
+	
+	
+	/*foreach ($categories as $category): ?>
 	<tr>
 		<td><?php echo h($category['Category']['id']); ?>&nbsp;</td>
 		<td>                                                        
@@ -26,8 +39,13 @@
 			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $category['Category']['id']), null, __('Are you sure you want to delete # %s?', $category['Category']['id'])); ?>
 		</td>
 	</tr>
-<?php endforeach; ?>
-	</table>
+<?php endforeach; */?>
+	
+	
+	
+	
+	
+  </table>
 	<p>
 	<?php    
 	     echo $this->Paginator->counter(array(

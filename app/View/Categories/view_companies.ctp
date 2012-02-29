@@ -1,6 +1,6 @@
 <div class="categories view">
-<h2><?php  echo 'Kategoria ' . $LT->getContent(1, $category['Category']['name_id']) . ':';?></h2>
-	<p>Zoznam podkategorii v kategorii <?php echo $LT->getContent(1, $category['Category']['name_id']);?>:</p>
+<h2><?php  echo 'Podkategoria ' . $LT->getContent(1, $category['Category']['name_id']) . ':';?></h2>
+	<p>Zoznam firiem:</p>
   <!--<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
@@ -18,20 +18,20 @@
 			&nbsp;
 		</dd>
 	</dl>-->
-  
 
+  
   <table cellpadding="0" cellspacing="0">
   <?php
-  foreach ($subCategories as $category): ?>
+  foreach ($companies as $company): ?>
 	<tr>
 		<td>                                                      
-			<?php  echo $this->Html->link(__($LT->getContent(1, $category['Category']['name_id'])), array('action' => 'viewCompanies', $category['Category']['id'])); // $this->Html->link(nazov linku, cesta)   ?>
+			<?php  echo $this->Html->link(__($company['CompanyProfile']['name']), array('controller' => 'companyprofiles', 'action' => 'view', $company['CompanyCategory']['company_profile_id']));  ?>
     </td>
 	</tr>
   <?php 
   endforeach;  ?>
   </table><br /><br />
-
+  
   <?php echo $this->Html->link(__('>> Hlavné kategórie'), array('action' => 'index')); ?>
 
 </div>
