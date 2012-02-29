@@ -20,7 +20,7 @@
 		</dd>
 		<dt><?php echo __('Info'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($companyProfile['Info']['id'], array('controller' => 'texts', 'action' => 'view', $companyProfile['Info']['id'])); ?>
+			<td><?php echo $LT->getContent(1, $companyProfile['Info']['id']);?></td>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Ico'); ?></dt>
@@ -82,8 +82,12 @@
 			<!--<td><?php echo $contact['id'];?></td>
 			<td><?php echo $contact['company_profile_id'];?></td>-->
 			<td><?php echo $contact['name'];?></td>
-			<td><?php echo $languageText['content'];?></td>
-			<td><?php echo $contact['phone'];?></td>
+			
+      
+      <td><?php echo $LT->getContent(1, $contact['info_id']);?></td><!--helper-->
+			
+			
+      <td><?php echo $contact['phone'];?></td>
 			<td><?php echo $contact['email'];?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View'), array('controller' => 'contacts', 'action' => 'view', $contact['id'])); ?>
@@ -109,7 +113,9 @@
 		$i = 0;
 		foreach ($companyProfile['Adress'] as $adress): ?>
 		<tr>
-			<td><?php echo $adress['name_id'];?></td>
+			
+			<td><?php echo $this->Text->get($adress['name_id']);?></td>
+			
 			<td><?php echo $adress['adress'];?></td>
 			<!--<td class="actions">
 				<?php echo $this->Html->link(__('View'), array('controller' => 'contacts', 'action' => 'view', $contact['id'])); ?>
@@ -128,3 +134,23 @@
 		</ul>
 	</div>
 </div>
+
+				<?php print_r($companyProfile);?>
+
+<div class="related">
+	<h3><?php echo __('Related Categories');?></h3>
+			<?php //print_r($categories);?> 
+    <table> 
+		<?php
+		$i = 0;
+		foreach ($categories as $category): ?>
+		<tr>
+			<td><?php echo $this->Text->get($category['ParentCategory']['name_id']); ?>  -> </td>
+			<td><?php echo $this->Text->get($category['Category']['name_id']); ?></td>
+		
+    </tr>
+	<?php endforeach; ?>
+	</table>
+			
+</div>
+

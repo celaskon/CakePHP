@@ -7,6 +7,9 @@ App::uses('AppController', 'Controller');
  */
 class CompanyProfilesController extends AppController {
 
+  public $uses = array('CompanyProfile', 'LanguageText', 'Category'); 
+  public $helpers = array('Form', 'Html', 'Js', 'Time', 'Text');
+  
 
 	public function index() {
 		$this->CompanyProfile->recursive = 0;
@@ -20,9 +23,25 @@ class CompanyProfilesController extends AppController {
 			throw new NotFoundException(__('Invalid company profile'));
 		}
 		
-    $this->set('title_for_layout','name');
-    //$this->set('companyProfile', $this->CompanyProfile->read(null, $id));
+		$this->set('title_for_layout','name');   
+		
+		$companyProfile = $this->CompanyProfile->read(); // ->read(null, $id)? - treba vstupne parametre?
+    $this->set('companyProfile', $companyProfile);
+    
+    //$categories = Array();
+    //$this->Category->unbindModel( array('hasMany'=>array('CompanyCategory','ChildCategory')) , false );
+    
+    foreach ($companyProfile['CompanyCategory'] as $CompanyCategory):
+       
+       $this->Category->id = $CompanyCategory['category_id'];
+       $categories[] = $this->Category->read();
+    endforeach;
+    
+    
+    $this->set('categories',$categories);
+    $this->set('LT',$this->LanguageText);
     //set('languageText', LanguageText->read(null, $id));
+    
     
 
   }

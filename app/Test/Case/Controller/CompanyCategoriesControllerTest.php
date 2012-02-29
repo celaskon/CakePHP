@@ -1,5 +1,5 @@
 <?php
-/* CompanyCategories Test cases generated on: 2011-12-05 20:05:03 : 1323115503*/
+/* CompanyCategories Test cases generated on: 2011-12-14 21:36:35 : 1323898595*/
 App::uses('CompanyCategoriesController', 'Controller');
 
 /**
@@ -36,7 +36,7 @@ class CompanyCategoriesControllerTestCase extends CakeTestCase {
  *
  * @var array
  */
-	public $fixtures = array('app.company_category', 'app.category', 'app.text', 'app.language_text', 'app.language', 'app.company_profile', 'app.user', 'app.user_profile', 'app.contact');
+	public $fixtures = array('app.company_category', 'app.category', 'app.text', 'app.language_text', 'app.language', 'app.company_profile', 'app.user', 'app.group', 'app.user_profile', 'app.contact', 'app.adress');
 
 /**
  * setUp method
@@ -59,6 +59,51 @@ class CompanyCategoriesControllerTestCase extends CakeTestCase {
 		unset($this->CompanyCategories);
 
 		parent::tearDown();
+	}
+
+/**
+ * testIndex method
+ *
+ * @return void
+ */
+	public function testIndex() {
+
+	}
+
+/**
+ * testView method
+ *
+ * @return void
+ */
+	public function testView() {
+
+	}
+
+/**
+ * testAdd method
+ *
+ * @return void
+ */
+	public function testAdd() {
+
+	}
+
+/**
+ * testEdit method
+ *
+ * @return void
+ */
+	public function testEdit() {
+
+	}
+
+/**
+ * testDelete method
+ *
+ * @return void
+ */
+	public function testDelete() {
+
 	}
 
 }

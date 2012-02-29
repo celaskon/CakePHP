@@ -5,5 +5,11 @@ class LanguageText extends AppModel {
         'Language',
         'Text'   
     );
+    
+    public function getContent($language_id, $text_id){
+      $t = $this->find('first', array("conditions"=>array("language_id" => $language_id, "text_id" => $text_id),
+			                              "fields" => array("content"))); 
+      return $t['LanguageText']['content'];			                          
+    }
 }
 ?>

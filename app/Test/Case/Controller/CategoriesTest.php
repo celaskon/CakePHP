@@ -1,5 +1,5 @@
 <?php
-/* Categories Test cases generated on: 2011-11-28 23:36:06 : 1322523366*/
+/* Categories Test cases generated on: 2011-12-14 21:45:11 : 1323899111*/
 App::uses('Categories', 'Controller');
 
 /**
@@ -36,7 +36,7 @@ class CategoriesTestCase extends CakeTestCase {
  *
  * @var array
  */
-	public $fixtures = array('app.text', 'app.language_text', 'app.language');
+	public $fixtures = array('app.company_category', 'app.category', 'app.text', 'app.language_text', 'app.language', 'app.company_profile', 'app.user', 'app.group', 'app.user_profile', 'app.contact', 'app.adress', '');
 
 /**
  * setUp method

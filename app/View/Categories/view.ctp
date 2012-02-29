@@ -29,8 +29,8 @@
 		<li><?php echo $this->Html->link(__('New Parent Category'), array('controller' => 'categories', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Texts'), array('controller' => 'texts', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Name'), array('controller' => 'texts', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Company Profiles'), array('controller' => 'company_profiles', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Company Profile'), array('controller' => 'company_profiles', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Company Categories'), array('controller' => 'company_categories', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Company Category'), array('controller' => 'company_categories', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
 <div class="related">
@@ -67,34 +67,24 @@
 	</div>
 </div>
 <div class="related">
-	<h3><?php echo __('Related Company Profiles');?></h3>
-	<?php if (!empty($category['CompanyProfile'])):?>
+	<h3><?php echo __('Related Company Categories');?></h3>
+	<?php if (!empty($category['CompanyCategory'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('User Id'); ?></th>
-		<th><?php echo __('Name'); ?></th>
-		<th><?php echo __('Info Id'); ?></th>
-		<th><?php echo __('Ico'); ?></th>
-		<th><?php echo __('Web Link'); ?></th>
-		<th><?php echo __('Public'); ?></th>
+		<th><?php echo __('Category Id'); ?></th>
+		<th><?php echo __('Company Profile Id'); ?></th>
 		<th class="actions"><?php echo __('Actions');?></th>
 	</tr>
 	<?php
 		$i = 0;
-		foreach ($category['CompanyProfile'] as $companyProfile): ?>
+		foreach ($category['CompanyCategory'] as $companyCategory): ?>
 		<tr>
-			<td><?php echo $companyProfile['id'];?></td>
-			<td><?php echo $companyProfile['user_id'];?></td>
-			<td><?php echo $companyProfile['name'];?></td>
-			<td><?php echo $companyProfile['info_id'];?></td>
-			<td><?php echo $companyProfile['ico'];?></td>
-			<td><?php echo $companyProfile['web_link'];?></td>
-			<td><?php echo $companyProfile['public'];?></td>
+			<td><?php echo $companyCategory['category_id'];?></td>
+			<td><?php echo $companyCategory['company_profile_id'];?></td>
 			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'company_profiles', 'action' => 'view', $companyProfile['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'company_profiles', 'action' => 'edit', $companyProfile['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'company_profiles', 'action' => 'delete', $companyProfile['id']), null, __('Are you sure you want to delete # %s?', $companyProfile['id'])); ?>
+				<?php echo $this->Html->link(__('View'), array('controller' => 'company_categories', 'action' => 'view', $companyCategory['id'])); ?>
+				<?php echo $this->Html->link(__('Edit'), array('controller' => 'company_categories', 'action' => 'edit', $companyCategory['id'])); ?>
+				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'company_categories', 'action' => 'delete', $companyCategory['id']), null, __('Are you sure you want to delete # %s?', $companyCategory['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
@@ -103,7 +93,7 @@
 
 	<div class="actions">
 		<ul>
-			<li><?php echo $this->Html->link(__('New Company Profile'), array('controller' => 'company_profiles', 'action' => 'add'));?> </li>
+			<li><?php echo $this->Html->link(__('New Company Category'), array('controller' => 'company_categories', 'action' => 'add'));?> </li>
 		</ul>
 	</div>
 </div>
