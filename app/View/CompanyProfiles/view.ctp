@@ -1,7 +1,6 @@
 <div class="companyProfiles view">
 <h2><?php  echo __('Company Profile') .' - '. ($companyProfile['CompanyProfile']['name']) ;?></h2>
 	<dl>
-		
     <!--<dt><?php echo __('Id'); ?></dt>
 		<dd>
 			<?php echo h($companyProfile['CompanyProfile']['id']); ?>
@@ -20,7 +19,7 @@
 		</dd>
 		<dt><?php echo __('Info'); ?></dt>
 		<dd>
-			<td><?php echo $LT->getContent(1, $companyProfile['Info']['id']);?></td>
+			<td><?php echo $companyProfile['CompanyProfile']['info']; ?></td>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Ico'); ?></dt>
@@ -84,7 +83,7 @@
 			<td><?php echo $contact['name'];?></td>
 			
       
-      <td><?php echo $LT->getContent(1, $contact['info_id']);?></td><!--helper-->
+      <td><?php //echo $LT->getContent(1, $contact['info_id']);?></td><!--helper-->
 			
 			
       <td><?php echo $contact['phone'];?></td>
@@ -114,7 +113,7 @@
 		foreach ($companyProfile['Adress'] as $adress): ?>
 		<tr>
 			
-			<td><?php echo $this->Text->get($adress['name_id']);?></td>
+			<td><?php //echo $this->Text->get($adress['name_id']);?></td>
 			
 			<td><?php echo $adress['adress'];?></td>
 			<!--<td class="actions">
@@ -146,8 +145,8 @@
 		foreach ($categories as $category): ?>
 		<tr>
 			<td>
-        <?php echo $this->Html->link(__($this->Text->get($category['ParentCategory']['name_id'])), array('controller' => 'categories', 'action' => 'view', $category['Category']['category_id']));  ?>  ->
-			  <?php echo $this->Html->link(__($this->Text->get($category['Category']['name_id'])), array('controller' => 'categories', 'action' => 'viewCompanies', $category['Category']['id']));  ?></td>
+        <?php //echo $this->Html->link(__($this->Text->get($category['ParentCategory']['name_id'])), array('controller' => 'categories', 'action' => 'view', $category['Category']['category_id']));  ?>  ->
+			  <?php //echo $this->Html->link(__($this->Text->get($category['Category']['name_id'])), array('controller' => 'categories', 'action' => 'viewCompanies', $category['Category']['id']));  ?></td>
     </tr>
 	<?php endforeach; ?>
 	</table>

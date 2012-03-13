@@ -1,13 +1,16 @@
 <?php
 class CompanyProfile extends AppModel {
     public $name = 'CompanyProfile';
+   
+    /*public $actsAs = array(
+        'Translate' => array(
+            'info'
+        )
+    );                   */
+        
+   
     public $belongsTo = array(
         'User',
-        'Info' => array(
-            'className'  => 'Text',
-            'foreignKey' => 'info_id',
-            'dependent'  => true
-        )
     );
 
     public $hasMany = array(
@@ -15,7 +18,6 @@ class CompanyProfile extends AppModel {
         'CompanyCategory',
         'Adress'
         );
+        
 }
-    
-    
 ?>

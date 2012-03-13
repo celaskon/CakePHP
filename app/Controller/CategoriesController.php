@@ -7,7 +7,7 @@ App::uses('AppController', 'Controller');
  */
 class CategoriesController extends AppController {
 
-  public $uses = array('Category', 'LanguageText', 'CompanyCategory');
+  public $uses = array('Category', 'CompanyCategory');
   //public $helpers = array('Form', 'Html', 'Js', 'Time', 'Text');
 /**
  * index method
