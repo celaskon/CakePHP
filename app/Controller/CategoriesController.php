@@ -15,9 +15,8 @@ class CategoriesController extends AppController {
  * @return void
  */
 	public function index() {
-    
-     
-    $mainCategories = $this->Category->find('all', array("conditions"=> "Category.category_id IS NULL")); 
+
+    $mainCategories = $this->Category->find('all', array("conditions"=> "Category.category_id = 0")); 
     $this->set('mainCategories', $mainCategories);   
     
     $this->set('LT',$this->LanguageText);
@@ -41,7 +40,6 @@ class CategoriesController extends AppController {
     
     $subCategories = $this->Category->find('all', array('conditions' => array('Category.category_id' => $id))); // podkategorie
     $this->set('subCategories', $subCategories); 
-    $this->set('LT',$this->LanguageText);  
     
     $this->set('category', $this->Category->read(null, $id));
 	}
@@ -89,9 +87,31 @@ class CategoriesController extends AppController {
 				$this->Session->setFlash(__('The category could not be saved. Please, try again.'));
 			}
 		}
-		$parentCategories = $this->Category->ParentCategory->find('list');
-		$names = $this->Category->Name->find('list');
-		$this->set(compact('parentCategories', 'names'));
+	//	$parentCategories = $this->Category->ParentCategory->find();
+		//$names = $this->Category->Name->find();
+	//	$this->set(compact('parentCategories', 'names'));
+	}
+	
+	
+	/**
+ * add method
+ *
+ * @return void
+ */
+	public function add_subcategory($id) {
+	
+		$this->set('category', $this->Category->read(null, $id));
+		
+    if ($this->request->is('post')) {
+			$this->Category->create();
+			if ($this->Category->save($this->request->data)) {
+				$this->Session->setFlash(__('The category has been saved'));
+				$this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The category could not be saved. Please, try again.'));
+			}
+		}
+	
 	}
 
 /**
@@ -101,8 +121,11 @@ class CategoriesController extends AppController {
  * @return void
  */
 	public function edit($id = null) {
-		$this->Category->id = $id;
-		if (!$this->Category->exists()) {
+		
+    $this->Category->id = $id;
+		$this->set('id', $id);
+		
+    if (!$this->Category->exists()) {
 			throw new NotFoundException(__('Invalid category'));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
@@ -115,9 +138,34 @@ class CategoriesController extends AppController {
 		} else {
 			$this->request->data = $this->Category->read(null, $id);
 		}
-		$parentCategories = $this->Category->ParentCategory->find('list');
-		$names = $this->Category->Name->find('list');
-		$this->set(compact('parentCategories', 'names'));
+	
+	}
+	
+	/**
+ * edit method
+ *
+ * @param string $id
+ * @return void
+ */
+	public function edit_subcategory($id = null) {
+		
+    $this->Category->id = $id;
+		$this->set('id', $id);
+		
+    if (!$this->Category->exists()) {
+			throw new NotFoundException(__('Invalid category'));
+		}
+		if ($this->request->is('post') || $this->request->is('put')) {
+			if ($this->Category->save($this->request->data)) {
+				$this->Session->setFlash(__('The category has been saved'));
+				$this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The category could not be saved. Please, try again.'));
+			}
+		} else {
+			$this->request->data = $this->Category->read(null, $id);
+		}
+	
 	}
 
 /**

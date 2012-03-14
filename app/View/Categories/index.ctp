@@ -13,7 +13,7 @@
   foreach ($mainCategories as $category): ?>
 	<tr>
 		<td>                                                      
-			<?php  echo $this->Html->link(__($LT->getContent(1, $category['Category']['name_id'])), array('action' => 'view', $category['Category']['id'])); // $this->Html->link(nazov linku, cesta)   ?>
+			<?php  echo $this->Html->link(__($category['Category']['name']), array('action' => 'view', $category['Category']['id'])); // $this->Html->link(nazov linku, cesta)   ?>
     </td>
 	</tr>
   <?php 
@@ -65,11 +65,12 @@
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('New Category'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Categories'), array('controller' => 'categories', 'action' => 'index')); ?> </li>
+		<!--<li><?php echo $this->Html->link(__('List Categories'), array('controller' => 'categories', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Parent Category'), array('controller' => 'categories', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Texts'), array('controller' => 'texts', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Name'), array('controller' => 'texts', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Company Categories'), array('controller' => 'company_categories', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Company Category'), array('controller' => 'company_categories', 'action' => 'add')); ?> </li>
-	</ul>
+	 -->
+  </ul>
 </div>

@@ -1,5 +1,6 @@
 <div class="categories view">
-<h2><?php  echo 'Podkategoria ' . $LT->getContent(1, $category['Category']['name_id']) . ':';?></h2>
+<h2><?php  echo __('Podkategoria ');
+           echo   $category['Category']['name'] . ':';?></h2>
 	<p>Zoznam firiem:</p>
   <!--<dl>
 		<dt><?php echo __('Id'); ?></dt>
@@ -39,9 +40,10 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Edit Category'), array('action' => 'edit', $category['Category']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Category'), array('action' => 'delete', $category['Category']['id']), null, __('Are you sure you want to delete # %s?', $category['Category']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Categories'), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Edit SubCategory'), array('action' => 'edit_subcategory', $category['Category']['id'])); ?> </li>
+		<!--
+    <li><?php echo $this->Form->postLink(__('Delete SubCategory'), array('action' => 'delete_subcategory', $category['Category']['id']), null, __('Are you sure you want to delete # %s?', $category['Category']['id'])); ?> </li>
+    <li><?php echo $this->Html->link(__('List Categories'), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Category'), array('action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Categories'), array('controller' => 'categories', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Parent Category'), array('controller' => 'categories', 'action' => 'add')); ?> </li>
@@ -51,7 +53,7 @@
 		<li><?php echo $this->Html->link(__('New Company Category'), array('controller' => 'company_categories', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
-
+-->
 
 
 

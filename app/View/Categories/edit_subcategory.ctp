@@ -3,8 +3,7 @@
 	<fieldset>
 		<legend><?php echo __('Edit Category'); ?></legend>
 	<?php
-	  echo $this->Form->hidden('Category.id', array('value' => $id));
-		echo $this->Form->hidden('Category.category_id', array('value' => 'NULL'));
+		echo $this->Form->hidden('Category.id', array('value' => $id));
 		echo $this->Form->input('Category.name', array('label' => 'Category Name:'));
 	?>
 	</fieldset>

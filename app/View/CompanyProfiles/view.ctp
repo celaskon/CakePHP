@@ -1,6 +1,9 @@
 <div class="companyProfiles view">
 <h2><?php  echo __('Company Profile') .' - '. ($companyProfile['CompanyProfile']['name']) ;?></h2>
 	<dl>
+    
+    <?php print_r($companyProfile);?>
+    
     <!--<dt><?php echo __('Id'); ?></dt>
 		<dd>
 			<?php echo h($companyProfile['CompanyProfile']['id']); ?>

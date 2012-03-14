@@ -1,6 +1,9 @@
 <div class="categories view">
-<h2><?php  echo 'Kategoria ' . $LT->getContent(1, $category['Category']['name_id']) . ':';?></h2>
-	<p>Zoznam podkategorii v kategorii <?php echo $LT->getContent(1, $category['Category']['name_id']);?>:</p>
+<h2><?php  echo __('Kategoria ');
+           echo   $category['Category']['name'] . ':';?></h2>
+	
+  
+  <p>Zoznam podkategorii v kategorii <?php echo $category['Category']['name'];?>:</p>
   <!--<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
@@ -25,7 +28,7 @@
   foreach ($subCategories as $category): ?>
 	<tr>
 		<td>                                                      
-			<?php  echo $this->Html->link(__($LT->getContent(1, $category['Category']['name_id'])), array('action' => 'viewCompanies', $category['Category']['id'])); // $this->Html->link(nazov linku, cesta)   ?>
+			<?php  echo $this->Html->link(__($category['Category']['name']), array('action' => 'viewCompanies', $category['Category']['id'])); // $this->Html->link(nazov linku, cesta)   ?>
     </td>
 	</tr>
   <?php 
@@ -39,17 +42,19 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Edit Category'), array('action' => 'edit', $category['Category']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Category'), array('action' => 'delete', $category['Category']['id']), null, __('Are you sure you want to delete # %s?', $category['Category']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Categories'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Category'), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Edit Category'), array('action' => 'edit', $category['Category']['category_id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('New SubCategory'), array('action' => 'add_subcategory', $category['Category']['category_id'])); ?> </li>
+		<!--
+		<li><?php echo $this->Form->postLink(__('Delete Category'), array('action' => 'delete', $category['Category']['category_id']), null, __('Are you sure you want to delete # %s?', $category['Category']['id'])); ?> </li>
+    <li><?php echo $this->Html->link(__('List Categories'), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Categories'), array('controller' => 'categories', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Parent Category'), array('controller' => 'categories', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Texts'), array('controller' => 'texts', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Name'), array('controller' => 'texts', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Company Categories'), array('controller' => 'company_categories', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Company Category'), array('controller' => 'company_categories', 'action' => 'add')); ?> </li>
-	</ul>
+	  -->
+  </ul>
 </div>
 
 
