@@ -1,6 +1,13 @@
 <div class="categories view">
 <h2><?php  echo __('Kategoria ');
-           echo   $category['Category']['name'] . ':';?></h2>
+            
+            
+            echo   $category['Category']['name'] . ': <br /><br />';
+            
+            $foo = Configure::read('Config.languages'); 
+            echo 'config:' . $foo[1]. '<br />'; 
+            echo 'session:'. $this->Session->read('Config.language');
+           ?></h2>
 	
   
   <p>Zoznam podkategorii v kategorii <?php echo $category['Category']['name'];?>:</p>

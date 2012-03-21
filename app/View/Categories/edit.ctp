@@ -3,9 +3,32 @@
 	<fieldset>
 		<legend><?php echo __('Edit Category'); ?></legend>
 	<?php
-	  echo $this->Form->hidden('Category.id', array('value' => $id));
-		echo $this->Form->hidden('Category.category_id', array('value' => 'NULL'));
-		echo $this->Form->input('Category.name', array('label' => 'Category Name:'));
+	  
+	  //echo 'data: <br />'; print_r($data); echo '<br /><br />';
+	  
+    $languages = Configure::read('Config.languages');
+    print_r($languages); echo '<br /><br />';
+    
+    
+    echo $this->Form->hidden('Category.id', array('value' => $id));
+    echo $this->Form->hidden('Category.category_id', array('value' => 'NULL'));
+    
+    $i = 0;
+    foreach ($languages as $language): 
+    
+        echo $language;   
+        //		echo $this->Form->input('Category.name', array('label' => 'Category Name:'));  
+    		echo $this->Form->hidden('nameTranslation.'.$i.'.id', array('value' => $this->request->data['nameTranslation'][$i]['id'])); 
+    		echo $this->Form->hidden('nameTranslation.'.$i.'.locale', array('value' => $this->request->data['nameTranslation'][$i]['locale'])); 
+    		echo $this->Form->hidden('nameTranslation.'.$i.'.model', array('value' => $this->request->data['nameTranslation'][$i]['model'])); 
+    		echo $this->Form->hidden('nameTranslation.'.$i.'.foreign_key', array('value' => $this->request->data['nameTranslation'][$i]['foreign_key'])); 
+    		echo $this->Form->hidden('nameTranslation.'.$i.'.field', array('value' => $this->request->data['nameTranslation'][$i]['field'])); 
+    		echo $this->Form->input('nameTranslation.'.$i.'.content', array('label' => 'Category Name:')); 
+        $i++; 
+         
+    endforeach; 
+    
+    
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit'));?>

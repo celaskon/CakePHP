@@ -3,9 +3,21 @@
 	<fieldset>
 		<legend><?php echo __('Add Main Category'); ?></legend>
 	<?php
-		echo $this->Form->hidden('Category.category_id', array('value' => 'NULL'));
-		echo $this->Form->input('Category.name', array('label' => 'Category Name:'));
-	?>
+	
+	  echo 'data: <br />'; print_r($data); echo '<br /><br />';
+    $languages = Configure::read('Config.languages'); 
+    echo 'languages: '; print_r($languages); echo'<br /><br />';
+    
+    $i = 0;
+    foreach ($languages as $language):
+        echo $language;   
+		    echo $this->Form->hidden('Category.locale', array('value' => $language));
+        echo $this->Form->input('Category.name'.$i, array('label' => 'Category Name:'));
+        $i++;
+    endforeach; 
+    
+    //echo $this->request->data;
+  ?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit'));?>
 </div>

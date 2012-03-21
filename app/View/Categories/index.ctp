@@ -10,6 +10,8 @@
 	</tr> -->  
 	
   <?php
+  print_r($mainCategories);
+  
   foreach ($mainCategories as $category): ?>
 	<tr>
 		<td>                                                      
