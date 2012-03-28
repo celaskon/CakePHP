@@ -11,12 +11,13 @@
     $i = 0;
     foreach ($languages as $language):
         echo $language;   
-		    echo $this->Form->hidden('Category.locale', array('value' => $language));
-        echo $this->Form->input('Category.name'.$i, array('label' => 'Category Name:'));
+		    echo $this->Form->hidden('Category.'.$i.'.category_id', array('value' => 'NULL'));
+        echo $this->Form->hidden('Category.'.$i.'.locale', array('value' => $language));
+        echo $this->Form->input('Category.'.$i.'.name', array('label' => 'Category Name:'));
         $i++;
     endforeach; 
     
-    //echo $this->request->data;
+   
   ?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit'));?>

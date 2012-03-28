@@ -4,7 +4,7 @@
 		<legend><?php echo __('Edit Category'); ?></legend>
 	<?php
 	  
-	  //echo 'data: <br />'; print_r($data); echo '<br /><br />';
+	  echo 'data: <br />'; print_r($data); echo '<br /><br />';
 	  
     $languages = Configure::read('Config.languages');
     print_r($languages); echo '<br /><br />';

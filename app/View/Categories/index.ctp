@@ -10,7 +10,7 @@
 	</tr> -->  
 	
   <?php
-  print_r($mainCategories);
+  //print_r($mainCategories);
   
   foreach ($mainCategories as $category): ?>
 	<tr>
@@ -20,10 +20,15 @@
 	</tr>
   <?php 
   endforeach; 
-	
-	
-	
-	
+	?>
+
+
+<p><?php echo $this->Html->link('English', array('language'=>'eng')); ?></p>
+<p><?php echo $this->Html->link('Slovensky', array('language'=>'slo')); ?></p>
+
+
+
+  <?php
 	/*foreach ($categories as $category): ?>
 	<tr>
 		<td><?php echo h($category['Category']['id']); ?>&nbsp;</td>

@@ -2175,3 +2175,126 @@
 #3 E:\Programy\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(89): Dispatcher->_invoke(Object(CategoriesController), Object(CakeRequest), Object(CakeResponse))
 #4 E:\Programy\wamp\www\cakephp\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #5 {main}
+2012-03-27 11:50:13 Error: [NotFoundException] Invalid category
+#0 [internal function]: CategoriesController->edit('0')
+#1 E:\Programy\wamp\www\cakephp\lib\Cake\Controller\Controller.php(473): ReflectionMethod->invokeArgs(Object(CategoriesController), Array)
+#2 E:\Programy\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(107): Controller->invokeAction(Object(CakeRequest))
+#3 E:\Programy\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(89): Dispatcher->_invoke(Object(CategoriesController), Object(CakeRequest), Object(CakeResponse))
+#4 E:\Programy\wamp\www\cakephp\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-03-27 11:50:50 Error: [NotFoundException] Invalid category
+#0 [internal function]: CategoriesController->edit('0')
+#1 E:\Programy\wamp\www\cakephp\lib\Cake\Controller\Controller.php(473): ReflectionMethod->invokeArgs(Object(CategoriesController), Array)
+#2 E:\Programy\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(107): Controller->invokeAction(Object(CakeRequest))
+#3 E:\Programy\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(89): Dispatcher->_invoke(Object(CategoriesController), Object(CakeRequest), Object(CakeResponse))
+#4 E:\Programy\wamp\www\cakephp\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-03-27 11:56:19 Error: [NotFoundException] Invalid category
+#0 [internal function]: CategoriesController->edit()
+#1 E:\Programy\wamp\www\cakephp\lib\Cake\Controller\Controller.php(473): ReflectionMethod->invokeArgs(Object(CategoriesController), Array)
+#2 E:\Programy\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(107): Controller->invokeAction(Object(CakeRequest))
+#3 E:\Programy\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(89): Dispatcher->_invoke(Object(CategoriesController), Object(CakeRequest), Object(CakeResponse))
+#4 E:\Programy\wamp\www\cakephp\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-03-27 11:56:28 Error: [NotFoundException] Invalid category
+#0 [internal function]: CategoriesController->edit()
+#1 E:\Programy\wamp\www\cakephp\lib\Cake\Controller\Controller.php(473): ReflectionMethod->invokeArgs(Object(CategoriesController), Array)
+#2 E:\Programy\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(107): Controller->invokeAction(Object(CakeRequest))
+#3 E:\Programy\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(89): Dispatcher->_invoke(Object(CategoriesController), Object(CakeRequest), Object(CakeResponse))
+#4 E:\Programy\wamp\www\cakephp\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-03-27 11:57:28 Error: [NotFoundException] Invalid category
+#0 [internal function]: CategoriesController->edit('0')
+#1 E:\Programy\wamp\www\cakephp\lib\Cake\Controller\Controller.php(473): ReflectionMethod->invokeArgs(Object(CategoriesController), Array)
+#2 E:\Programy\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(107): Controller->invokeAction(Object(CakeRequest))
+#3 E:\Programy\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(89): Dispatcher->_invoke(Object(CategoriesController), Object(CakeRequest), Object(CakeResponse))
+#4 E:\Programy\wamp\www\cakephp\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-03-27 11:58:28 Error: [NotFoundException] Invalid category
+#0 [internal function]: CategoriesController->edit('0')
+#1 E:\Programy\wamp\www\cakephp\lib\Cake\Controller\Controller.php(473): ReflectionMethod->invokeArgs(Object(CategoriesController), Array)
+#2 E:\Programy\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(107): Controller->invokeAction(Object(CakeRequest))
+#3 E:\Programy\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(89): Dispatcher->_invoke(Object(CategoriesController), Object(CakeRequest), Object(CakeResponse))
+#4 E:\Programy\wamp\www\cakephp\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-03-27 12:00:32 Error: [NotFoundException] Invalid category
+#0 [internal function]: CategoriesController->edit('0')
+#1 E:\Programy\wamp\www\cakephp\lib\Cake\Controller\Controller.php(473): ReflectionMethod->invokeArgs(Object(CategoriesController), Array)
+#2 E:\Programy\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(107): Controller->invokeAction(Object(CakeRequest))
+#3 E:\Programy\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(89): Dispatcher->_invoke(Object(CategoriesController), Object(CakeRequest), Object(CakeResponse))
+#4 E:\Programy\wamp\www\cakephp\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-03-28 17:26:03 Error: [MissingControllerException] Controller class EngController could not be found.
+#0 E:\Programy\wamp\www\cakephp\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-03-28 17:26:56 Error: [MissingControllerException] Controller class EngController could not be found.
+#0 E:\Programy\wamp\www\cakephp\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-03-28 17:27:34 Error: [MissingControllerException] Controller class EngController could not be found.
+#0 E:\Programy\wamp\www\cakephp\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-03-28 17:32:08 Error: [MissingControllerException] Controller class EngController could not be found.
+#0 E:\Programy\wamp\www\cakephp\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-03-28 17:32:15 Error: [MissingControllerException] Controller class SloController could not be found.
+#0 E:\Programy\wamp\www\cakephp\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-03-28 17:43:33 Error: [MissingControllerException] Controller class SloController could not be found.
+#0 E:\Programy\wamp\www\cakephp\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-03-28 17:43:41 Error: [MissingControllerException] Controller class EngController could not be found.
+#0 E:\Programy\wamp\www\cakephp\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-03-28 17:46:10 Error: [MissingControllerException] Controller class EngController could not be found.
+#0 E:\Programy\wamp\www\cakephp\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-03-28 17:47:19 Error: [MissingControllerException] Controller class EngController could not be found.
+#0 E:\Programy\wamp\www\cakephp\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-03-28 17:51:21 Error: [MissingControllerException] Controller class EngController could not be found.
+#0 E:\Programy\wamp\www\cakephp\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-03-28 17:51:26 Error: [MissingControllerException] Controller class SloController could not be found.
+#0 E:\Programy\wamp\www\cakephp\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-03-28 17:54:44 Error: [MissingActionException] Action Users::test5() could not be found.
+#0 E:\Programy\wamp\www\cakephp\lib\Cake\Controller\Scaffold.php(150): Scaffold->_scaffold(Object(CakeRequest))
+#1 E:\Programy\wamp\www\cakephp\lib\Cake\Controller\Controller.php(518): Scaffold->__construct(Object(UsersController), Object(CakeRequest))
+#2 E:\Programy\wamp\www\cakephp\lib\Cake\Controller\Controller.php(477): Controller->_getScaffold(Object(CakeRequest))
+#3 E:\Programy\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(107): Controller->invokeAction(Object(CakeRequest))
+#4 E:\Programy\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(89): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 E:\Programy\wamp\www\cakephp\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2012-03-28 17:54:54 Error: [MissingActionException] Action CategoriesController::test() could not be found.
+#0 E:\Programy\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(107): Controller->invokeAction(Object(CakeRequest))
+#1 E:\Programy\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(89): Dispatcher->_invoke(Object(CategoriesController), Object(CakeRequest), Object(CakeResponse))
+#2 E:\Programy\wamp\www\cakephp\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-03-28 17:55:02 Error: [MissingActionException] Action Users::test5() could not be found.
+#0 E:\Programy\wamp\www\cakephp\lib\Cake\Controller\Scaffold.php(150): Scaffold->_scaffold(Object(CakeRequest))
+#1 E:\Programy\wamp\www\cakephp\lib\Cake\Controller\Controller.php(518): Scaffold->__construct(Object(UsersController), Object(CakeRequest))
+#2 E:\Programy\wamp\www\cakephp\lib\Cake\Controller\Controller.php(477): Controller->_getScaffold(Object(CakeRequest))
+#3 E:\Programy\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(107): Controller->invokeAction(Object(CakeRequest))
+#4 E:\Programy\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(89): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 E:\Programy\wamp\www\cakephp\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2012-03-28 17:57:37 Error: [MissingControllerException] Controller class SloController could not be found.
+#0 E:\Programy\wamp\www\cakephp\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-03-28 17:59:02 Error: [MissingControllerException] Controller class EngController could not be found.
+#0 E:\Programy\wamp\www\cakephp\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-03-28 18:26:01 Error: [NotFoundException] Invalid category
+#0 [internal function]: CategoriesController->edit('0')
+#1 E:\Programy\wamp\www\cakephp\lib\Cake\Controller\Controller.php(473): ReflectionMethod->invokeArgs(Object(CategoriesController), Array)
+#2 E:\Programy\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(107): Controller->invokeAction(Object(CakeRequest))
+#3 E:\Programy\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(89): Dispatcher->_invoke(Object(CategoriesController), Object(CakeRequest), Object(CakeResponse))
+#4 E:\Programy\wamp\www\cakephp\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-03-28 18:28:50 Error: [NotFoundException] Invalid category
+#0 [internal function]: CategoriesController->edit('0')
+#1 E:\Programy\wamp\www\cakephp\lib\Cake\Controller\Controller.php(473): ReflectionMethod->invokeArgs(Object(CategoriesController), Array)
+#2 E:\Programy\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(107): Controller->invokeAction(Object(CakeRequest))
+#3 E:\Programy\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(89): Dispatcher->_invoke(Object(CategoriesController), Object(CakeRequest), Object(CakeResponse))
+#4 E:\Programy\wamp\www\cakephp\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}

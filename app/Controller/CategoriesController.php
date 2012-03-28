@@ -15,7 +15,7 @@ class CategoriesController extends AppController {
   }
   
   
-  //public $helpers = array('Form', 'Html', 'Js', 'Time', 'Text');
+  //public $helpers = array('Form', 'Html', 'Js', 'Time');
 /**
  * index method
  *
@@ -93,12 +93,31 @@ class CategoriesController extends AppController {
     $data = $this->request->data;
 		$this->set('data', $data);
     
-    
     if ($this->request->is('post')) {
-			//$this->Category->create();
-			if(1 == 1){ //($this->Category->save($this->request->data)) {
+			if(1 == 1){ 
+        
+        $this->Category->bindTranslation(array('name' => 'nameTranslation'));
+        $languages = Configure::read('Config.languages'); //pole jazykov
+			
+        $this->Category->create();
+			  $this->Category->locale = $languages[0];
+        $this->Category->save($data['Category'][0]);
+        //$this->Category->locale = $languages[1];
+        //$this->Category->save($data['Category'][1]);
+        
+        $i = 0;
+        foreach ($languages as $lang):
+          if ($lang == 'slo'){   //prvy jazyk preskoci
+            $i++;
+            continue;
+          }  
+          $this->Category->locale = $lang;
+          $this->Category->save($data['Category'][$i]);
+          $i++;
+        endforeach;       
+      
 				$this->Session->setFlash(__('The category has been saved'));
-				//$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The category could not be saved. Please, try again.'));
 			}
@@ -117,17 +136,36 @@ class CategoriesController extends AppController {
 	public function add_subcategory($id) {
 	
 		$this->set('category', $this->Category->read(null, $id));
-		
+		$data = $this->request->data;
+		$this->set('data', $data);
+    
     if ($this->request->is('post')) {
-			$this->Category->create();
-			if ($this->Category->save($this->request->data)) {
-				$this->Session->setFlash(__('The category has been saved'));
+			if(1 == 1){ 
+        
+        $this->Category->bindTranslation(array('name' => 'nameTranslation'));
+        $languages = Configure::read('Config.languages'); //pole jazykov
+			
+        $this->Category->create();
+			  $this->Category->locale = $languages[0];
+        $this->Category->save($data['Category'][0]);
+        
+        $i = 0;
+        foreach ($languages as $lang):
+          if ($lang == 'slo'){   //prvy jazyk preskoci
+            $i++;
+            continue;
+          }  
+          $this->Category->locale = $lang;
+          $this->Category->save($data['Category'][$i]);
+          $i++;
+        endforeach;       
+      
+				$this->Session->setFlash(__('The SubCategory has been saved'));
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The category could not be saved. Please, try again.'));
 			}
 		}
-	
 	}
 
 /**
@@ -154,18 +192,13 @@ class CategoriesController extends AppController {
 			
       $languages = Configure::read('Config.languages'); //pole jazykov
       $i = 0;
-      foreach ($languages as $l): 
-        $array[] = array('Category' => array('id' => $data['Category']['id'], 'name' => $data['nameTranslation'][$i]['content'])); 
-        $i++;
-      endforeach;  
-      //$this->set('array', $array); 
-      
-      $i = 0;
-      foreach ($array as $a): 
-         $this->Category->locale = $languages[$i];
-         $this->Category->save($a);
+      $array = array( 'Category' => $data['Category'] );
+      foreach ($languages as $lang):
+         $array['Category']['name'] = $data['nameTranslation'][$i]['content']; 
+         $this->Category->locale = $lang;
+         $this->Category->save($array);
          $i++;
-       endforeach;  
+      endforeach;  
       
       if(1 == 1) {
 				$this->Session->setFlash(__('The category has been saved'));
@@ -191,17 +224,37 @@ class CategoriesController extends AppController {
     $this->Category->id = $id;
 		$this->set('id', $id);
 		
+		$Categories = $this->Category->find('all', array('conditions' => array('Category.category_id' => 0))); // hlavne kategorie 
+    $this->set('Categories', $Categories);
+		
+		$data = $this->request->data;
+		$this->set('data', $data);
+		
     if (!$this->Category->exists()) {
 			throw new NotFoundException(__('Invalid category'));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->Category->save($this->request->data)) {
+			
+      $this->Category->bindTranslation(array('name' => 'nameTranslation'));
+			
+      $languages = Configure::read('Config.languages'); //pole jazykov
+      $i = 0;
+      $array = array( 'Category' => $data['Category'] );
+      foreach ($languages as $lang):
+         $array['Category']['name'] = $data['nameTranslation'][$i]['content']; 
+         $this->Category->locale = $lang;
+         $this->Category->save($array);
+         $i++;
+      endforeach;  
+      
+      if(1 == 1) {
 				$this->Session->setFlash(__('The category has been saved'));
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The category could not be saved. Please, try again.'));
 			}
 		} else {
+		  $this->Category->bindTranslation(array('name' => 'nameTranslation'));
 			$this->request->data = $this->Category->read(null, $id);
 		}
 	

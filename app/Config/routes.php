@@ -41,4 +41,8 @@
  * Load the CakePHP default routes. Remove this if you do not want to use
  * the built-in default routes.
  */
-	require CAKE . 'Config' . DS . 'routes.php';
+	require CAKE . 'Config' . DS . 'routes.php';    
+  
+    Router::connect('/:lang/:controller', array(), array('lang' => '[a-z]{3}'));
+    Router::connect('/:lang/:controller/:action', array(), array('lang' => '[a-z]{3}'));
+    Router::connect('/:lang/:controller/:action/*', array(), array('lang' => '[a-z]{3}'));     
