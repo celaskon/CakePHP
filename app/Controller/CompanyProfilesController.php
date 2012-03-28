@@ -47,7 +47,42 @@ class CompanyProfilesController extends AppController {
 
 //  add method
 	public function add() {
-		if ($this->request->is('post')) {
+	
+	  $Categories = $this->Category->find('all'); // hlavne kategorie 
+    $this->set('Categories', $Categories);
+		
+    $data = $this->request->data;
+		$this->set('data', $data);
+    
+    if ($this->request->is('post')) {
+			if(1 == 1){ 
+        
+        $this->Category->bindTranslation(array('name' => 'info'));
+        $languages = Configure::read('Config.languages'); //pole jazykov
+			
+        $this->Category->create();
+			  $this->Category->locale = $languages[0];
+        $this->Category->save($data['Category'][0]);
+        
+        $i = 0;
+        foreach ($languages as $lang):
+          if ($lang == 'slo'){   //prvy jazyk preskoci
+            $i++;
+            continue;
+          }  
+          $this->Category->locale = $lang;
+          $this->Category->save($data['Category'][$i]);
+          $i++;
+        endforeach;       
+      
+				$this->Session->setFlash(__('The category has been saved'));
+				$this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The category could not be saved. Please, try again.'));
+			}
+		}
+    
+    /*if ($this->request->is('post')) {
 			$this->CompanyProfile->create();
 			if ($this->CompanyProfile->save($this->request->data)) {
 				$this->Session->setFlash(__('The company profile has been saved'));
@@ -58,7 +93,7 @@ class CompanyProfilesController extends AppController {
 		}
 		$infos = $this->CompanyProfile->Info->find('list');
 		$users = $this->CompanyProfile->User->find('list');
-		$this->set(compact('infos', 'users'));
+		$this->set(compact('infos', 'users'));    */
 	}
 
 // edit method

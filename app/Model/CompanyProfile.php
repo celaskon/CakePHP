@@ -10,14 +10,14 @@ class CompanyProfile extends AppModel {
         
    
     public $belongsTo = array(
-        'User',
+        'User'
     );
 
     public $hasMany = array(
         'Contact',
         'CompanyCategory',
         'Adress'
-        );
+    );
         
 }
 ?>
