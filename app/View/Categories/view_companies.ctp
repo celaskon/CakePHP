@@ -1,6 +1,20 @@
-<div class="categories view">
-<h2><?php  echo __('Podkategoria ');
-           echo   $category['Category']['name'] . ':';?></h2>
+<div class="categories_index">
+  
+  <?php  echo 'Ste tu: ' .  
+              $this->Html->link(__('Home') , array('action' => 'index'))
+              . ' -> ' .
+              $this->Html->link(__($level3['Category']['name']), array('action' => 'view', $level3['Category']['id']))
+              . ' -> ' .
+              $this->Html->link(__($level2['Category']['name']), array('action' => 'view_subcategory_level2', $level2['Category']['id']))
+              . ' -> ' . 
+              $this->Html->link(__($category['Category']['name']), array('action' => 'view_companies', $category['Category']['id'])); ?>
+
+<h2>
+  <?php  echo __('Podkategoria ');
+         echo   $category['Category']['name'] . ':';?>
+</h2>
+
+
 	<p>Zoznam firiem:</p>
   <!--<dl>
 		<dt><?php echo __('Id'); ?></dt>

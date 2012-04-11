@@ -1,42 +1,27 @@
-<div class="categories view">
-<h2><?php  echo __('Kategoria ');
-            
-    echo   $category['Category']['name'] . ': <br /><br />';
-    
-    $foo = Configure::read('Config.languages'); 
-    echo 'config:' . $foo[1]. '<br />'; 
-    echo 'session:'. $this->Session->read('Config.language');
-    echo $category['Category']['id'];
-    ?>
-</h2>
-	
+<div class="categories_index">
+  <?php  echo 'Ste tu: ' .  
+              $this->Html->link(__('Home') , array('action' => 'index'))
+              . ' -> ' . 
+              $this->Html->link(__($category['Category']['name']), array('action' => 'view', $category['Category']['id']));?>
+  
+  <h2>
+    <?php  
+    echo __('Kategória ');
+    echo   $category['Category']['name'] . ': ';
+      /*$foo = Configure::read('Config.languages'); 
+      echo 'config:' . $foo[0]. '<br />'; 
+      echo 'session:'. $this->Session->read('Config.language');  */?>
+      
+  </h2>
   
   <p>Zoznam podkategorii v kategorii <?php echo $category['Category']['name'];?>:</p>
-  <!--<dl>
-		<dt><?php echo __('Id'); ?></dt>
-		<dd>
-			<?php echo h($category['Category']['id']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Parent Category'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($category['ParentCategory']['id'], array('controller' => 'categories', 'action' => 'view', $category['ParentCategory']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Name'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($category['Name']['id'], array('controller' => 'texts', 'action' => 'view', $category['Name']['id'])); ?>
-			&nbsp;
-		</dd>
-	</dl>-->
-  
 
   <table cellpadding="0" cellspacing="0">
   <?php
-  foreach ($subCategories as $category): ?>
-	<tr>
+  foreach ($subCategories as $Subcategory): ?>
+	<tr>                                                                                                    
 		<td>                                                      
-			<?php  echo $this->Html->link(__($category['Category']['name']), array('action' => 'viewCompanies', $category['Category']['id'])); // $this->Html->link(nazov linku, cesta)   ?>
+			<?php  echo $this->Html->link(__($Subcategory['Category']['name']), array('action' => 'view_subcategory_level2', $Subcategory['Category']['id'])); // $this->Html->link(nazov linku, cesta)   ?>
     </td>
 	</tr>
   <?php 
@@ -44,14 +29,14 @@
   </table><br /><br />
 
   <?php echo $this->Html->link(__('>> Hlavné kategórie'), array('action' => 'index')); ?>
-
+  
 </div>
 
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Category'), array('action' => 'edit', $category['Category']['category_id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('New SubCategory'), array('action' => 'add_subcategory', $category['Category']['category_id'])); ?> </li>
+	<ul>                                                                                                  
+		<li><?php echo $this->Html->link(__('Edit Category'), array('action' => 'edit', $category['Category']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('New SubCategory'), array('action' => 'add_subcategory', $category['Category']['id'])); ?> </li>
 		<!--
 		<li><?php echo $this->Form->postLink(__('Delete Category'), array('action' => 'delete', $category['Category']['category_id']), null, __('Are you sure you want to delete # %s?', $category['Category']['id'])); ?> </li>
     <li><?php echo $this->Html->link(__('List Categories'), array('action' => 'index')); ?> </li>

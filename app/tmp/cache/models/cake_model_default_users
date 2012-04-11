@@ -1,2 +1,2 @@
-1332969672
+1334164425
 a:4:{s:2:"id";a:7:{s:4:"type";s:7:"integer";s:4:"null";b:0;s:7:"default";N;s:6:"length";i:11;s:3:"key";s:7:"primary";s:7:"collate";N;s:7:"comment";s:0:"";}s:8:"group_id";a:6:{s:4:"type";s:7:"integer";s:4:"null";b:0;s:7:"default";N;s:6:"length";i:11;s:7:"collate";N;s:7:"comment";s:0:"";}s:5:"login";a:7:{s:4:"type";s:6:"string";s:4:"null";b:0;s:7:"default";N;s:6:"length";i:50;s:7:"collate";s:14:"utf8_slovak_ci";s:7:"comment";s:0:"";s:7:"charset";s:4:"utf8";}s:8:"password";a:7:{s:4:"type";s:6:"string";s:4:"null";b:0;s:7:"default";N;s:6:"length";i:50;s:7:"collate";s:14:"utf8_slovak_ci";s:7:"comment";s:0:"";s:7:"charset";s:4:"utf8";}}

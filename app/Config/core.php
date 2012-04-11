@@ -333,5 +333,6 @@ Cache::config('_cake_model_', array(
 
 
 
-//Configure::write('Config.language', 'eng'); 
+//Configure::write('Config.language', 'eng');
+/* Available languages of the portal. The first one is the default. */ 
 Configure::write('Config.languages', array('slo','eng')); 

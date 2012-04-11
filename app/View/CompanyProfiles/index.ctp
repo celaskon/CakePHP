@@ -1,7 +1,9 @@
-<div class="companyProfiles index">
+<div class="categories_index">
 	<h2><?php echo __('Company Profiles') . ' - List:';?></h2>
 	<table cellpadding="0" cellspacing="0">
-	<tr>
+	
+  <!-- 
+  <tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('user_id');?></th>
 			<th><?php echo $this->Paginator->sort('name');?></th>
@@ -11,6 +13,9 @@
 			<th><?php echo $this->Paginator->sort('public');?></th>
 			<th class="actions"><?php echo __('Actions');?></th>
 	</tr>
+	-->
+	
+	
 	<?php
 	$i = 0;
 	foreach ($companyProfiles as $companyProfile): ?>

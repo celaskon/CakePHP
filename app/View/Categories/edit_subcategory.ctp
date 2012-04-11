@@ -16,7 +16,7 @@
     endforeach; 
     
     
-    $attributes = array('empty' => 'Main Category');
+    $attributes = array('class' => 'input-text', 'empty' => 'Main Category');
     echo 'Choose Category: <br />';
     echo $this->Form->select('Category.category_id', $options, $attributes);
     echo '<br /><br />';
@@ -32,7 +32,7 @@
     		echo $this->Form->hidden('nameTranslation.'.$i.'.model', array('value' => $this->request->data['nameTranslation'][$i]['model'])); 
     		echo $this->Form->hidden('nameTranslation.'.$i.'.foreign_key', array('value' => $this->request->data['nameTranslation'][$i]['foreign_key'])); 
     		echo $this->Form->hidden('nameTranslation.'.$i.'.field', array('value' => $this->request->data['nameTranslation'][$i]['field'])); 
-    		echo $this->Form->input('nameTranslation.'.$i.'.content', array('label' => 'Category Name:')); 
+    		echo $this->Form->input('nameTranslation.'.$i.'.content', array('class' => 'input-text', 'label' => 'Category Name:')); 
         $i++; 
          
     endforeach; 
