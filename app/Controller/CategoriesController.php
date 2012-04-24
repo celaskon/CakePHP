@@ -144,7 +144,7 @@ class CategoriesController extends AppController {
     
     if ($this->request->is('post')) {
 			if(1 == 1){ 
-        
+        /*
         $this->Category->bindTranslation(array('name' => 'nameTranslation'));
         $languages = Configure::read('Config.languages'); //pole jazykov
 			
@@ -164,7 +164,8 @@ class CategoriesController extends AppController {
         endforeach;       
       
 				$this->Session->setFlash(__('The SubCategory has been saved'));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'index')); */
+				
 			} else {
 				$this->Session->setFlash(__('The category could not be saved. Please, try again.'));
 			}

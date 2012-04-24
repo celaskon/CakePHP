@@ -6,16 +6,18 @@ App::uses('AppController', 'Controller');
  * @property CompanyProfile $CompanyProfile
  */
 class CompanyProfilesController extends AppController {
-
-  public $uses = array('CompanyProfile', 'Category', 'Adress'); 
-  public $helpers = array('Form', 'Html', 'Js' => array('Prototype', 'jQuery'), 'Time','TinyMCE');
   
-
+  public $uses = array('CompanyProfile', 'Category', 'Adress', 'Contact', 'CompanyCategory'); 
+  public $helpers = array('Form', 'Html', 'Js' => array('jQuery'), 'Time','TinyMce');
+   
+ 
+  
+  
 	public function index() {
 		$this->CompanyProfile->recursive = 0;
 		$this->set('companyProfiles', $this->paginate());
 	}
-
+  
 
 	public function view($id = null) {
 		$this->CompanyProfile->id = $id;
@@ -53,16 +55,18 @@ public function add() {
 	
   $data = $this->request->data;
 	$this->set('data', $data);
-    
+  
   if ($this->request->is('post')) {
     if(1 == 1){ 
         
-        $this->Category->bindTranslation(array('name' => 'info'));
+        $this->CompanyProfile->bindTranslation(array('name' => 'info'));
         $languages = Configure::read('Config.languages'); //pole jazykov
 	
-        $this->Category->create();
-	      $this->Category->locale = $languages[0];
-        $this->Category->save($data['Category'][0]);
+        $this->Session->write('CompanyProfile.1', $data);
+        
+        /*$this->CompanyProfile->create();
+	      $this->CompanyProfile->locale = $languages[0];
+        $this->CompanyProfile->save($data['Category'][0]);
         
         $i = 0;
         foreach ($languages as $lang):
@@ -70,15 +74,15 @@ public function add() {
             $i++;
             continue;
           }  
-          $this->Category->locale = $lang;
-          $this->Category->save($data['Category'][$i]);
+          $this->CompanyProfile->locale = $lang;
+          $this->CompanyProfile->save($data['Category'][$i]);
           $i++;
         endforeach;       
       
-  	$this->Session->setFlash(__('The category has been saved'));
-  	$this->redirect(array('action' => 'index'));
-	  }
-	}
+  	$this->Session->setFlash(__('The category has been saved'));  */
+    $this->redirect(array('action' => 'addStep2', $this->$data)); 
+	  } 
+	} 
 	 else {
 	$this->Session->setFlash(__('The category could not be saved. Please, try again.'));
 	}
@@ -99,9 +103,9 @@ public function add() {
 	
 	
 public function addStep2() {
-	  
+	
   $data = $this->request->data;
-	$this->set('data', $data);
+	$this->set('data', $data);      
     
   if ($this->request->is('post')) {
     if(1 == 1){ 
@@ -109,6 +113,8 @@ public function addStep2() {
         //$this->Category->bindTranslation(array('name' => 'info'));
         $languages = Configure::read('Config.languages'); //pole jazykov
 	
+	      $this->Session->write('CompanyProfile.2', $data);
+	/*
         $this->Adress->create();
 	      $this->Adress->locale = $languages[0];
         $this->Adress->save($data['Category'][0]);
@@ -124,8 +130,8 @@ public function addStep2() {
           $i++;
         endforeach;       
       
-  	$this->Session->setFlash(__('The category has been saved'));
-  	$this->redirect(array('action' => 'index'));
+  	$this->Session->setFlash(__('The category has been saved')); */
+  	$this->redirect(array('action' => 'addStep3'));      
 	  }
 	}
 	 else {
@@ -144,8 +150,10 @@ public function addStep3() {
         
         //$this->Category->bindTranslation(array('name' => 'info'));
         $languages = Configure::read('Config.languages'); //pole jazykov
+        
+        $this->Session->write('CompanyProfile.3', $data);
 	
-        $this->Adress->create();
+        /*$this->Adress->create();
 	      $this->Adress->locale = $languages[0];
         $this->Adress->save($data['Category'][0]);
         
@@ -160,8 +168,8 @@ public function addStep3() {
           $i++;
         endforeach;       
       
-  	$this->Session->setFlash(__('The category has been saved'));
-  	$this->redirect(array('action' => 'index'));
+  	$this->Session->setFlash(__('The category has been saved')); */
+  	$this->redirect(array('action' => 'addStep4'));
 	  }
 	}
 	 else {
@@ -183,8 +191,10 @@ public function addStep4() {
         
         //$this->Category->bindTranslation(array('name' => 'info'));
         $languages = Configure::read('Config.languages'); //pole jazykov
+        
+        $this->Session->write('CompanyProfile.4', $data);
 	
-        $this->Adress->create();
+        /*$this->Adress->create();
 	      $this->Adress->locale = $languages[0];
         $this->Adress->save($data['Category'][0]);
         
@@ -199,8 +209,127 @@ public function addStep4() {
           $i++;
         endforeach;       
       
+  	$this->Session->setFlash(__('The category has been saved'));*/
+  	$this->redirect(array('action' => 'addSummary'));
+	  }
+	}
+	 else {
+	$this->Session->setFlash(__('The category could not be saved. Please, try again.'));
+	}
+}	
+
+
+public function addSummary() {
+	
+  $info = $this->Session->read('CompanyProfile'); // info o kategoriach v session
+  $info = $info[4]['CompanyCategory'];
+  
+  foreach ($info as $key): // info o kategoriach v DB
+    $array[] = $this->Category->find('first', array('conditions' => array('Category.id' => $key))); 
+  endforeach;
+  
+  $info = array();
+  $i = 0;
+  foreach ($array as $key):   // nazvy kategorii a rodicovskych kategorii
+    if (empty($key['ChildCategory'])){
+      
+      $parent = $this->Category->find('first', array('conditions' => array('Category.id' => $key['ParentCategory']['id']))); 
+      $Gparent = $this->Category->find('first', array('conditions' => array('Category.id' => $parent['ParentCategory']['id']))); 
+      
+      $info[$i][1] = $Gparent['Category']['name'];
+      $info[$i][2] = $parent['Category']['name'];
+      $info[$i][3] = $key['Category']['name'];
+      $i++;
+    }
+  endforeach;
+  
+  $this->set('info', $info);
+  
+  $data = $this->request->data;
+  $session_data = $this->Session->read('CompanyProfile');
+  $languages = Configure::read('Config.languages'); //pole jazykov
+  
+    
+  if ($this->request->is('post')) {
+    if(1 == 1){ // ak zvalidovane
+        
+        // Company Profile save
+        $this->CompanyProfile->bindTranslation(array('info' => 'nameTranslation'));
+        $this->CompanyProfile->create();                                                                     
+        $i = 0;
+        foreach ($languages as $lang):
+          
+          $data_to_save['CompanyProfile'][$i]['name']     = $session_data[1]['CompanyProfile']['name'];
+          $data_to_save['CompanyProfile'][$i]['ico']      = $session_data[1]['CompanyProfile']['ico'];
+          $data_to_save['CompanyProfile'][$i]['web_link'] = $session_data[1]['CompanyProfile']['web_link'];
+          $data_to_save['CompanyProfile'][$i]['locale']   = $lang;
+          $data_to_save['CompanyProfile'][$i]['info']     = $session_data[1]['CompanyProfile'][$lang]['info'];
+            
+          $this->CompanyProfile->locale = $lang;
+          $this->CompanyProfile->save($data_to_save['CompanyProfile'][$i]);
+          $i++;
+        endforeach;    
+        $CompanyProfile_id = $this->CompanyProfile->getInsertID();
+        
+        // Company Address save
+        $this->Adress->bindTranslation(array('name' => 'nameTranslation'));
+        for ($j = 1; $j <= 4; $j++) {
+          
+          if (!empty($session_data[2]['CompanyAddress'][$j]['Adress']['adress'])){ // pre kazdu vyplnenu adresu zavola create
+            $this->Adress->create();
+            $i = 0;
+            
+            foreach ($languages as $lang):
+              
+              $data_to_save[$j]['Adress'][$i]['company_profile_id'] = $CompanyProfile_id;
+              $data_to_save[$j]['Adress'][$i]['locale']             = $lang;                                              
+              $data_to_save[$j]['Adress'][$i]['name']               = $session_data[2]['CompanyAddress'][$j]['Adress'][$lang]['name'];
+              $data_to_save[$j]['Adress'][$i]['adress']             = $session_data[2]['CompanyAddress'][$j]['Adress']['adress'];
+                
+              $this->Adress->locale = $lang;
+              $this->Adress->save($data_to_save[$j]['Adress'][$i]);
+              $i++;
+            endforeach;
+          }
+        }
+        
+        // Company Contacts save
+        for ($j = 1; $j <= 4; $j++) {
+          
+          if ((!empty($session_data[3]['CompanyContact'][$j]['Contact']['name']))  ||  // ak je vyplneny lubovolna polozka kontaktu, zavola create
+              (!empty($session_data[3]['CompanyContact'][$j]['Contact']['phone'])) ||
+              (!empty($session_data[3]['CompanyContact'][$j]['Contact']['email']))) { 
+          
+            $this->Contact->create();
+              
+            $data_to_save['Contact'][$j]['company_profile_id'] = $CompanyProfile_id;
+            $data_to_save['Contact'][$j]['name']  = $session_data[3]['CompanyContact'][$j]['Contact']['name'];
+            $data_to_save['Contact'][$j]['phone'] = $session_data[3]['CompanyContact'][$j]['Contact']['phone'];                                              
+            $data_to_save['Contact'][$j]['email'] = $session_data[3]['CompanyContact'][$j]['Contact']['email'];
+              
+            $this->Contact->save($data_to_save['Contact'][$j]);
+            $i++;
+          }
+        }      
+      
+        // Company Categories save    
+        $i = 0;  
+        foreach ($array as $key):   // nazvy kategorii a rodicovskych kategorii
+          if (empty($key['ChildCategory'])){
+            $this->CompanyCategory->create();    
+            
+            $data_to_save['CompanyCategory'][$i]['company_profile_id'] = $CompanyProfile_id;
+            $data_to_save['CompanyCategory'][$i]['category_id']        = $key['Category']['id'];                                              
+              
+            $this->CompanyCategory->save($data_to_save['CompanyCategory'][$i]);
+            $i++;
+          }  
+        endforeach;       
+      
   	$this->Session->setFlash(__('The category has been saved'));
-  	$this->redirect(array('action' => 'index'));
+  	$this->Session->delete('CompanyProfile');
+    $this->redirect(array('action' => 'index'));
+  	
 	  }
 	}
 	 else {

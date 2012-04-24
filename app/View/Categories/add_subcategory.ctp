@@ -6,7 +6,7 @@
 <?php
 	
     $languages = Configure::read('Config.languages'); 
-
+    
     $i = 0;
     foreach ($languages as $language):
         echo $language;   

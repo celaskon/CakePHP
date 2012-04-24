@@ -104,6 +104,20 @@ h2{
 .level3_div{
   margin: 10px 0px 0px 50px;
 }
+.oddelovac{
+  margin: -10px 0px 10px 0px;
+  text-align:center;
+  height:1px;
+  border:1px;color:#DBDBDB;
+  background-color:#DBDBDB;
+}
+.blue{
+  color: #0066CC;
+}
+.icon{
+  float: right;
+}
+
 /* --------------------  Img Rotator ------------------------ */
 .rotator {
 	height:150;
@@ -293,7 +307,7 @@ label {
 }
 button, input.input-text, input.password, input.button, textarea, input.select {
   font-family: Helvetica Neue, "Arial", Helvetica, Verdana, sans-serif; 
-}
+}  
 input.input-text, input.password, textarea, input.select { 
   display: block; 
   background: transparent url(../img/input-bg.png) no-repeat 0 0; 
@@ -340,7 +354,7 @@ label.inlined.textarea { height: 36px; }
 
 .company_register{
   padding: 20px 0px 40px 30px;
-  width: 50%;
+  width: 70%;
   border: none;
 }
 
