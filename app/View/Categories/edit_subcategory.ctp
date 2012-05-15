@@ -1,7 +1,6 @@
-<div class="categories form">
+<div class="company_register">
 <?php echo $this->Form->create('Category');?>
-	<fieldset>
-		<legend><?php echo __('Edit SubCategory'); ?></legend>
+	<h2><?php echo __('Edit SubCategory'); ?></h2>
 	<?php
 	  
     $languages = Configure::read('Config.languages');
@@ -38,7 +37,7 @@
     endforeach; 
     
 	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit'));?>
+	<br /><br />
+  <div class="left"><?php echo $this->Form->end(__('Submit'));?></div>
 </div>
 

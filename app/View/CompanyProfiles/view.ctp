@@ -1,158 +1,77 @@
-<div class="companyProfiles view">
-<h2><?php  echo __('Company Profile') .' - '. ($companyProfile['CompanyProfile']['name']) ;?></h2>
-	<dl>
-    
-    <?php print_r($companyProfile);?>
-    
-    <!--<dt><?php echo __('Id'); ?></dt>
-		<dd>
-			<?php echo h($companyProfile['CompanyProfile']['id']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('User'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($companyProfile['User']['id'], array('controller' => 'users', 'action' => 'view', $companyProfile['User']['id'])); ?>
-			&nbsp;
-		</dd>     -->
-		
-		<dt><?php echo __('Name'); ?></dt>
-		<dd>
-			<?php echo h($companyProfile['CompanyProfile']['name']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Info'); ?></dt>
-		<dd>
-			<td><?php echo $companyProfile['CompanyProfile']['info']; ?></td>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Ico'); ?></dt>
-		<dd>
-			<?php echo h($companyProfile['CompanyProfile']['ico']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Web Link'); ?></dt>
-		<dd>
-			<?php echo h($companyProfile['CompanyProfile']['web_link']); ?>
-			&nbsp;
-		</dd>
-		
-    <!--<dt><?php echo __('Public'); ?></dt>
-		<dd>
-			<?php echo h($companyProfile['CompanyProfile']['public']); ?>
-			&nbsp;
-		</dd>-->
-		
-		
-	</dl>
-</div>
-
 
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Edit Company Profile'), array('action' => 'edit', $companyProfile['CompanyProfile']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Company Profile'), array('action' => 'delete', $companyProfile['CompanyProfile']['id']), null, __('Are you sure you want to delete # %s?', $companyProfile['CompanyProfile']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Company Profiles'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Company Profile'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Texts'), array('controller' => 'texts', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Info'), array('controller' => 'texts', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Contacts'), array('controller' => 'contacts', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Contact'), array('controller' => 'contacts', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Edit Company Profile'), array('action' => 'editProfile', $companyProfile['CompanyProfile']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Edit Company Addreses'), array('action' => 'editAddress', $companyProfile['CompanyProfile']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Edit Company Contacts'), array('action' => 'editContact', $companyProfile['CompanyProfile']['id'])); ?> </li>
+    <li><?php echo $this->Form->postLink(__('Delete Company Profile'), array('action' => 'delete', $companyProfile['CompanyProfile']['id']), null, __('Are you sure you want to delete # %s?', $companyProfile['CompanyProfile']['id'])); ?> </li>
 	</ul>
 </div>
+    
+<div class="companyProfiles_view">
+   
+   <?php 
+    echo '<br />';
+    echo $this->Html->image('info_icon.jpg', array('class' => 'icon', 'alt' => '', 'border' => 0, 'height' => 40));
+    echo'<h2 class="blue">'. ($companyProfile['CompanyProfile']['name']) .'</h2>';
+    echo'<hr class="oddelovac"></hr>';
+   
+    echo '<b>'.__('Company ICO: '). '</b>';
+    echo $companyProfile['CompanyProfile']['ico']. '<br />';
+    
+    echo '<b>'.__('Company web address: '). '</b>';
+    echo $this->Html->link($companyProfile['CompanyProfile']['web_link'], $companyProfile['CompanyProfile']['web_link']).'<br /><br />';
+    
+    echo '<b>'.__('Company Profile Description: '). '</b><br />';
+    echo $companyProfile['CompanyProfile']['info']. '<br />';
+    
+    
+    
+    echo'<h3>'.  __('Company Contact: ') .'</h3>';
+    echo'<hr class="oddelovac"></hr>';
+    
+		foreach ($companyProfile['Contact'] as $contact):
+      echo '<b>'. $contact['name'].'</b><br />';
+      echo '<span class="info">'.$contact['phone'].'</span><br />'; 
+      echo '<span class="info">'.$contact['email'].'</span><br />';
+      echo '<br />';
+    endforeach; 
+  
 
 
-<div class="related">
-	<h3><?php echo __('Related Contacts');?></h3>
-	<?php if (!empty($companyProfile['Contact'])):?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<!--<th><?php echo __('Id'); ?></th>-->
-		<!--<th><?php echo __('Company Profile Id'); ?></th>-->
-		<th><?php echo __('Name'); ?></th>
-		<th><?php echo __('Info Id'); ?></th>
-		<th><?php echo __('Phone'); ?></th>
-		<th><?php echo __('Email'); ?></th>
-		<th class="actions"><?php echo __('Actions');?></th>
-	</tr>
-	<?php
+
+    echo $this->Html->image('mail.png', array('class' => 'icon', 'alt' => '', 'border' => 0, 'height' => 40));
+    echo'<h3>'.  __('Company Adress: ') .'</h3>';
+    echo'<hr class="oddelovac"></hr>';
+
+    
 		$i = 0;
-		foreach ($companyProfile['Contact'] as $contact): ?>
-		<tr>
-			<!--<td><?php echo $contact['id'];?></td>
-			<td><?php echo $contact['company_profile_id'];?></td>-->
-			<td><?php echo $contact['name'];?></td>
-			
-      
-      <td><?php //echo $LT->getContent(1, $contact['info_id']);?></td><!--helper-->
-			
-			
-      <td><?php echo $contact['phone'];?></td>
-			<td><?php echo $contact['email'];?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'contacts', 'action' => 'view', $contact['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'contacts', 'action' => 'edit', $contact['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'contacts', 'action' => 'delete', $contact['id']), null, __('Are you sure you want to delete # %s?', $contact['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
-
-
-<div class="related">
-	<h3><?php echo __('Related Adresses');?></h3>
-	<?php if (!empty($companyProfile['Adress'])):?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Name_id'); ?></th>
-		<th><?php echo __('Adress'); ?></th>
-		<th class="actions"><?php echo __('Actions');?></th>
-	</tr>
-	<?php
-		$i = 0;
-		foreach ($companyProfile['Adress'] as $adress): ?>
-		<tr>
-			
-			<td><?php //echo $this->Text->get($adress['name_id']);?></td>
-			
-			<td><?php echo $adress['adress'];?></td>
-			<!--<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'contacts', 'action' => 'view', $contact['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'contacts', 'action' => 'edit', $contact['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'contacts', 'action' => 'delete', $contact['id']), null, __('Are you sure you want to delete # %s?', $contact['id'])); ?>
-			</td>-->
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
-
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Contact'), array('controller' => 'contacts', 'action' => 'add'));?> </li>
-		</ul>
-	</div>
-</div>
-
-				<?php //print_r($companyProfile);?>
-
-<div class="related">
-	<h3><?php echo __('Related Categories');?></h3>
-			<?php //print_r($categories);?> 
-    <table> 
-		<?php
-		$i = 0;
-		foreach ($categories as $category): ?>
-		<tr>
-			<td>
-        <?php //echo $this->Html->link(__($this->Text->get($category['ParentCategory']['name_id'])), array('controller' => 'categories', 'action' => 'view', $category['Category']['category_id']));  ?>  ->
-			  <?php //echo $this->Html->link(__($this->Text->get($category['Category']['name_id'])), array('controller' => 'categories', 'action' => 'viewCompanies', $category['Category']['id']));  ?></td>
-    </tr>
-	<?php endforeach; ?>
-	</table>
-			
+		foreach ($companyProfile['Adress'] as $adress): 
+      //echo $adress['info'];
+      echo $adress['adress'];
+    endforeach; 
+        
+    ?>
+    
+    <?//php print_r($companyProfile);?>
+    
+    <div class="related">
+    	<h3><?php echo __('Related Categories');?></h3>
+    			<?php echo'<hr class="oddelovac"></hr>';
+          //print_r($categories);?> 
+    		<?php
+    		$i = 0;
+    		echo '<div class="blue">';
+        foreach ($info as $key):
+          if (!empty($key[1])){
+            echo $key[1] .' > '; 
+          }
+          echo $key[2] .' > '. $key[3]. '<br />';
+        
+        endforeach; 
+        echo '</div><br /><br />';?>
+    </div>
+  
 </div>
 

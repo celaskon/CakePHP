@@ -104,7 +104,7 @@
     ));
     */
     
-    echo $this->Form->button('<< Back');
+    echo $this->Form->button('<< Back', array('name' => 'data[back]', 'value' => 'back'));
     echo $this->Form->end(__('Next >>'));?>
     
 	</div>

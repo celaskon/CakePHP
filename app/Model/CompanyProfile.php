@@ -7,7 +7,24 @@ class CompanyProfile extends AppModel {
             'info'
         )
     );                   
+    
+    public $validate = array(
+        'name' => array(
+                'rule'     => 'notEmpty',
+                'required' => true,
+                'message'  => 'This field cannot be left blank.'
+        ),
+        'ico' => array(
+                'required' => false,
+                'rule'    => 'numeric',
+                'message' => 'Enter numbers only.'
+        ),
+        'web_link' => array(
+                'rule'    => 'url',
+                'message' => 'Enter correct url adress.'
+        ),
         
+    );    
    
     public $belongsTo = array(
         'User'

@@ -134,9 +134,10 @@
       <div id="menu">
         <ul id="nav">
         	<li class="current"><a href="#">Home</a></li>
-        	<li><a href="#">My Projects</a>
+        	<li><a href="#">Links</a>
         		<ul>
-        			<li><a href="#">N.Design Studio</a>
+        			<!-- 
+              <li><a href="#">N.Design Studio</a>
         				<ul>
         					<li><a href="#">Portfolio</a></li>
         					<li><a href="#">WordPress Themes</a></li>
@@ -148,9 +149,9 @@
         				<ul>
         					<li><a href="#">Design Job Wall</a></li>
         				</ul>
-        			</li>
-        			<li><a href="#">IconDock</a></li>
-        			<li><a href="#">Best Web Gallery</a></li>
+        			</li>-->
+        			<li><a href="categories">Categories</a></li>
+        			<li><a href="companyprofiles">Company profiles</a></li>
         		</ul>
         	</li>
         	<li><a href="#">Multi-Levels</a>
@@ -187,7 +188,9 @@
       </div>
         
       <div id="content">
-        <?php echo $content_for_layout; ?>
+        <?php 
+        echo $this->Session->flash();
+        echo $content_for_layout; ?>
       </div>
       
     </div>  

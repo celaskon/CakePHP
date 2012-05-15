@@ -232,4 +232,215 @@ Array (
 
 
 
+
+Array ( 
+[0] => Array ( 
+    [Adress] => Array ( 
+        
+        [id] => 7 
+        [company_profile_id] => 1 
+        [adress] => Mačkov 63
+                    388 01 Blatná
+                    okres Strakonice
+
+ 
+        [locale] => slo 
+        [name] => Centrála 
+      ) 
+      
+    
+    [CompanyProfile] => Array ( 
+        
+        [id] => 1 
+        [user_id] => 0 
+        [name] => ALFABETON s.r.o.- Mačkov 
+        [ico] => 2147483647 
+        [web_link] => www.alfabeton.cz 
+        [public] => 1 ) 
+        
+    [nameTranslation] => Array ( 
+        
+        [0] => Array ( 
+            [id] => 172 
+            [locale] => slo 
+            [model] => Adress 
+            [foreign_key] => 7 
+            [field] => name 
+            [content] => Centrála 
+        ) 
+        
+        [1] => Array ( 
+            [id] => 173 
+            [locale] => eng 
+            [model] => Adress 
+            [foreign_key] => 7 
+            [field] => name 
+            [content] => ) ) ) 
+            
+            
+    [1] => Array ( 
+        
+        [Adress] => Array ( 
+            
+            [id] => 8 
+            [company_profile_id] => 1 
+            [adress] => Další betonárna:
+                        ALFABETON s.r.o. , 388 01 Blatná , okr. Strakonice
+            [locale] => slo 
+            [name] => Pobočka ) 
+            
+        [CompanyProfile] => Array ( 
+            [id] => 1 
+            [user_id] => 0 
+            [name] => ALFABETON s.r.o.- Mačkov 
+            [ico] => 2147483647 
+            [web_link] => www.alfabeton.cz 
+            [public] => 1 ) 
+            
+        [nameTranslation] => Array ( 
+            [0] => Array ( 
+                [id] => 174 
+                [locale] => slo 
+                [model] => Adress 
+                [foreign_key] => 8 
+                [field] => name 
+                [content] => Pobočka ) 
+                
+            [1] => Array ( 
+                
+                [id] => 175 
+                [locale] => eng 
+                [model] => Adress 
+                [foreign_key] => 8 
+                [field] => name 
+                [content] => ) ) ) ) 
+
+
+
+
+Array ( [0] => Array (  
+            [Adress] => Array ( 
+                
+                [id] => 10 
+                [company_profile_id] => 4 
+                [adress] => Za Červeným mlýnem č.p. 173
+                            666 01 Tišnov
+                            okres Brno-venkov
+                [locale] => slo 
+                [name] => Predajna ) 
+                
+                
+              [CompanyProfile] => Array ( 
+                  
+                  [id] => 4 
+                  [user_id] => 0 
+                  [name] => TENST, spol. s r.o. 
+                  [ico] => 2147483647 
+                  [web_link] => www.tenst.cz 
+                  [public] => ) 
+              
+              [nameTranslation] => Array ( 
+              
+                  [0] => Array ( 
+                      
+                      [id] => 189 
+                      [locale] => slo 
+                      [model] => Adress 
+                      [foreign_key] => 10 
+                      [field] => name 
+                      [content] => Predajna 
+                    ) 
+                    
+                    
+                  [1] => Array ( [id] => 190 [locale] => eng [model] => Adress [foreign_key] => 10 [field] => name [content] => Store ) ) ) 
+          
+          
+    [1] => Array ( [Adress] => Array ( [id] => 11 [company_profile_id] => 4 [adress] =>
+
+Za Červeným mlýnem č.p. 173
+666 01 Tišnov
+okres Brno-venkov
+[locale] => slo [name] => Pobočka 1 ) [CompanyProfile] => Array ( [id] => 4 [user_id] => 0 [name] => TENST, spol. s r.o. [ico] => 2147483647 [web_link] => www.tenst.cz [public] => ) [nameTranslation] => Array ( [0] => Array ( [id] => 191 [locale] => slo [model] => Adress [foreign_key] => 11 [field] => name [content] => Pobočka 1 ) [1] => Array ( [id] => 192 [locale] => eng [model] => Adress [foreign_key] => 11 [field] => name [content] => branch office 1 ) ) ) [2] => Array ( [Adress] => Array ( [id] => 12 [company_profile_id] => 4 [adress] => 
+
+
+
+
+Array ( 
+  [Form] => Array ( 
+      
+      [0] => Array ( 
+          [Adress] => Array ( 
+              [id] => 10 
+              [company_profile_id] => 4 
+              [adress] => Za Červeným mlýnem č.p. 173) 
+          [nameTranslation] => Array ( 
+              [id] => 190 
+              [locale] => eng 
+              [model] => Adress 
+              [foreign_key] => 10 
+              [field] => name 
+              [content] => Store ) ) 
+        [1] => Array ( 
+            [Adress] => Array ( 
+                [id] => 11 
+                [company_profile_id] => 4 
+                [adress] => Za Červeným mlýnem č.p. 173) 
+            [nameTranslation] => Array ( 
+                [id] => 192 
+                [locale] => eng 
+                [model] => Adress 
+                [foreign_key] => 11 
+                [field] => name 
+                [content] => branch office 1 ) ) 
+        [2] => Array ( 
+            [Adress] => Array ( 
+                [id] => 12 
+                [company_profile_id] => 4 [adress] =>
+
+
+
+Array ( 
+[Form] => Array ( 
+    [0] => Array ( 
+        [Adress] => Array ( 
+            [id] => 15 
+            [company_profile_id] => 6 
+            [adress] => Jamné nad Orlicí 136) 
+        [nameTranslation] => Array ( 
+            
+            [0] => Array ( 
+                [id] => 207 
+                [locale] => slo 
+                [model] => Adress 
+                [foreign_key] => 15 
+                [field] => name 
+                [content] => Pobočka ) 
+            [1] => Array ( 
+                [id] => 208 
+                [locale] => eng 
+                [model] => Adress 
+                [foreign_key] => 15 
+                [field] => name 
+                [content] => Store ) ) ) 
+      
+      
+      [1] => Array ( 
+          [Adress] => Array ( 
+              [id] => 16 
+              [company_profile_id] => 6 
+              [adress] => ) 
+          [nameTranslation] => Array ( 
+              
+              [0] => Array ( [id] => 209 [locale] => slo [model] => Adress [foreign_key] => 16 [field] => name [content] => ) [1] => Array ( [id] => 210 [locale] => eng [model] => Adress [foreign_key] => 16 [field] => name [content] => ) ) ) [2] => Array ( [Adress] => Array ( [id] => 17 [company_profile_id] => 6 [adress] => ) [nameTranslation] => Array ( [0] => Array ( [id] => 211 [locale] => slo [model] => Adress [foreign_key] => 17 [field] => name [content] => ) [1] => Array ( [id] => 212 [locale] => eng [model] => Adress [foreign_key] => 17 [field] => name [content] => ) ) ) [3] => Array ( [Adress] => Array ( [id] => 18 [company_profile_id] => 6 [adress] => ) [nameTranslation] => Array ( [0] => Array ( [id] => 213 [locale] => slo [model] => Adress [foreign_key] => 18 [field] => name [content] => ) [1] => Array ( [id] => 214 [locale] => eng [model] => Adress [foreign_key] => 18 [field] => name [content] => ) ) ) ) ) 
+
+
+
+
+
+
+
+
+
+
+
 ?>
