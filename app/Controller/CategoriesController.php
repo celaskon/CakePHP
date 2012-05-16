@@ -9,6 +9,11 @@ class CategoriesController extends AppController {
 
   public $uses = array('Category', 'CompanyCategory');
   
+  public function beforeFilter() {
+        parent::beforeFilter();
+        $this->Auth->allow('index');
+    }
+  
   /*public function beforeFilter() {
         $this->Session->write('Config.language', 'slo');
         Configure::write('Config.language', $this->Session->read('Config.language'));

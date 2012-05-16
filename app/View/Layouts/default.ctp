@@ -84,7 +84,10 @@
   <div>
     
     <div id="header">
-      <?php echo $this->Html->image('logo3.png', array('alt' => 'Process Component', 'border' => 0, 'height' => 40));?>
+      <?php 
+      echo $this->Html->image('logo3.png', array('alt' => 'Process Component', 'border' => 0, 'height' => 40));
+      
+      ?>
       <div id="lang">
         <a href="<?php echo $this->Html->url(array("controller" => "categories",
                                                     "action" => "index",
@@ -97,12 +100,18 @@
                                                     "?" => array("lang" => "eng")));?>"> 
            <?php echo $this->Html->image('eng.gif', array('alt' => 'English language', 'border' => 0, 'height' => 14));?>
         </a>
+      </div> 
       
-      
-             
-
+      <?php if (AuthComponent::user('username') != '') { ?>
+      <div class="login">
+        <?php 
+          echo '<br />';
+          echo __('Logged as '). AuthComponent::user('username'). '. '; 
+        ?>
+        <a href="<?php echo $this->Html->url(array("controller" => "users", "action" => "logout"));?>">Logout</a>
       </div>
-    </div>
+      <?php } ?>
+    </div>   
     
     <div id="header2">
       <?php echo $this->Html->image('intro2.jpg', array('alt' => 'intro', 'border' => 0, 'height' => 150));?>
@@ -150,8 +159,9 @@
         					<li><a href="#">Design Job Wall</a></li>
         				</ul>
         			</li>-->
-        			<li><a href="categories">Categories</a></li>
-        			<li><a href="companyprofiles">Company profiles</a></li>
+        			<li><a href="<?php echo $this->Html->url(array("controller" => "categories", "action" => "index"));?>">Categories</a></li></li>
+        			<li><a href="<?php echo $this->Html->url(array("controller" => "companyprofiles", "action" => "index"));?>">Company profiles</a></li>
+        			<li><a href="<?php echo $this->Html->url(array("controller" => "users", "action" => "login"));?>">Login</a></li>
         		</ul>
         	</li>
         	<li><a href="#">Multi-Levels</a>

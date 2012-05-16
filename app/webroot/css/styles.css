@@ -141,6 +141,10 @@ body {
 .left{
   float: left;
 }
+.login{
+  float: right;
+  margin: 4px -40px 5px 0px; 
+}
 /* --------------------  Img Rotator ------------------------ */
 .rotator {
 	height:150;
